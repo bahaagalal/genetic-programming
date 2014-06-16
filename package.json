@@ -1,0 +1,27 @@
+{
+  "name": "genetic-programming",
+  "private": false,
+  "version": "0.1.0",
+  "author": "Bahaa Galal <bahaa.g.ali@gmail.com>",
+  "description": "Simple Genetic Programming Examples",
+  "contributors": [
+    {
+      "name": "Bahaa Galal <bahaagalal>",
+      "email": "bahaa.g.ali@gmail.com"
+    }
+  ],
+  "main": "./run.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bahaagalal/genetic-programming.git"
+  },
+  "engine": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
