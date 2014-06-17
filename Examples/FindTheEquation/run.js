@@ -75,6 +75,6 @@ var rankFunction = function(population){
 	return scores;
 };
 
-var result = Population.evolve(2, functionsList, 500, rankFunction, 0, 10000, 0.9, 0.9, 0.9, 0.5);
+var result = Population.evolve(2, functionsList, 1000, rankFunction, 0, 50000, 0.7, 0.9, 0.7, 0.9);
 
 console.log(result.display());

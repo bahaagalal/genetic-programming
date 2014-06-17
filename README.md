@@ -48,7 +48,7 @@ The class for nodes that only return one of the parameters passed to the program
 ###ConstantNode
 The class for nodes that return a constant value.
 
-##The initial Population
+##The Initial Population
 
 Most of the time, the initial population consists of a set of random programs.
 This makes the process easier to start, since it is not necessary to design several programs that almost solve a problem.
@@ -66,8 +66,8 @@ If you are testing a program against a numerical outcome, so an easy way to test
 ##Mutating Programs
 
 Mutation takes a single program and alters it slightly. The tree programs can be altered in a number of ways.
-	- By changing the function on a node or by altering its branches.
-	- By replacing a subtree with and entirely new one.
+- By changing the function on a node or by altering its branches.
+- By replacing a subtree with and entirely new one.
 Mutation is not something that should be done too much. You can assign a relatively small probability that any node will be modified.
 Beginning at the top of the tree, if a random number is lower than that probability, the node is mutated in one of the ways described above; otherwise the test is performed again on its child nodes.
 
@@ -79,7 +79,25 @@ The hope is simply that some will improve the result. These changes will be used
 Crossover involves taking two successful programs and combining them to create a new program, usually by replacing a branch from one with a branch from other.
 The function for performing a crossover takes two trees as input and traverses down both of them. If a randomly selected threshold is reached, the function returns a copy of the first tree with one of its branches replaced by a branch in the second tree.
 
-##Example 1: A Simple Mathematical Test
+##The Solution
+An important property of genetic programming: the solutions it finds may well be correct or very good, but because of the way they are constructed, they will often be far more complicated than anything a human programmer would design.
+
+##The Importance of Diversity
+
+Choosing only a couple of the top solutions quickly makes the population extremely homogenous, containing solutions that are pretty good but that won't change much because crossover operations between them lead to more of the same.
+This problem is called reaching a _local maxima_, a state that's good but not quite good enough, and one in which small changes don't improve the result.
+
+It turns out that having the very best solutions combined with a large number of moderately good solutions tend to lead to better result.
+
+For this reason, the Population->evolve function has a couple of extra parameters that allow you to tune the amount of diversity in the selection process.
+- By lowering the probabilityOfSelectingLowerRankedPrograms value, you allow weaker solutions into the final result, turning the process from “survival of the fittest” to “survival of the fittest and luckiest.”
+- By increasing the probabilityOfIntroducingNewProgramsInThePopulations value, you allow completely new programs to be added to the mix occasionally.
+
+##Conclusion
+This tutorial has given you some ideas about how genetic programming can be used and has inspired you to improve it and to try automatically generating programs for more complex problems.
+Although they may take a very long time to generate, once you find a good program, you can use it again and again.
+
+##Example: A Simple Mathematical Test
 
 X            | Y             | Result
 ------------ | ------------- | -------------
@@ -91,6 +109,3 @@ X            | Y             | Result
 
 There is some function that maps X and Y to the result, But you aren't told what is it!
 The real test is whether genetic programming can produce it without being told.
-
-##Important Note
-An important property of genetic programming: the solutions it finds may well be correct or very good, but because of the way they are constructed, they will often be far more complicated than anything a human programmer would design.
