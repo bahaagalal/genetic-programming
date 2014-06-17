@@ -47,3 +47,35 @@ The class for nodes that only return one of the parameters passed to the program
 
 ###ConstantNode
 The class for nodes that return a constant value.
+
+##The initial Population
+
+Most of the time, the initial population consists of a set of random programs.
+This makes the process easier to start, since it is not necessary to design several programs that almost solve a problem.
+It also creates much more diversity in the initial population -- a set of programs designed by a single programmer to solve a problem are likely to be very similar.
+
+Creating a random program consisting of creating a root node with a random associated function, and then creating as many random child nodes as necessary, which in turn may have their own associated random child nodes.
+
+If you could just generate random programs until one is correct. Obviously, this would be ridiculously impractical because there are infinite possible programs and it is highly unlikely that you would stumble across a correct one in any reasonable timeframe.
+
+##Measuring Success
+
+It is necessary to come up with a way to measure how good a solution is.
+If you are testing a program against a numerical outcome, so an easy way to test a program is to see how close it gets to the correct answer.
+
+##Mutating Programs
+
+Mutation takes a single program and alters it slightly. The tree programs can be altered in a number of ways.
+	- By changing the function on a node or by altering its branches.
+	- By replacing a subtree with and entirely new one.
+Mutation is not something that should be done too much. You can assign a relatively small probability that any node will be modified.
+Beginning at the top of the tree, if a random number is lower than that probability, the node is mutated in one of the ways described above; otherwise the test is performed again on its child nodes.
+
+Remember that mutations are random, and they aren't necessarily directed toward improving the solution.
+The hope is simply that some will improve the result. These changes will be used to continue, and over several generations the best solution will eventually be found.
+
+##Crossovering Programs
+
+Crossover involves taking two successful programs and combining them to create a new program, usually by replacing a branch from one with a branch from other.
+The function for performing a crossover takes two trees as input and traverses down both of them. If a randomly selected threshold is reached, the function returns a copy of the first tree with one of its branches replaced by a branch in the second tree.
+
