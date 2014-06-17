@@ -18,10 +18,9 @@
   "engine": {
     "node": ">=0.10"
   },
-  "scripts": {
-  },
-  "devDependencies": {
-  },
+  "scripts": {},
+  "devDependencies": {},
   "dependencies": {
+    "underscore": "~1.6.0"
   }
 }
