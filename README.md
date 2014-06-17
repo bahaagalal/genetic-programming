@@ -79,3 +79,18 @@ The hope is simply that some will improve the result. These changes will be used
 Crossover involves taking two successful programs and combining them to create a new program, usually by replacing a branch from one with a branch from other.
 The function for performing a crossover takes two trees as input and traverses down both of them. If a randomly selected threshold is reached, the function returns a copy of the first tree with one of its branches replaced by a branch in the second tree.
 
+##Example 1: A Simple Mathematical Test
+
+X            | Y             | Result
+------------ | ------------- | -------------
+26 | 35 | 829
+8 | 24 | 141
+20 | 1 | 467
+33 | 11 | 1215
+37 | 16 | 1517
+
+There is some function that maps X and Y to the result, But you aren't told what is it!
+The real test is whether genetic programming can produce it without being told.
+
+##Important Note
+An important property of genetic programming: the solutions it finds may well be correct or very good, but because of the way they are constructed, they will often be far more complicated than anything a human programmer would design.
